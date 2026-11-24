@@ -60,15 +60,15 @@ jobs:
       - name: Smoke-test compiled ZeroToCodeLab.exe & generate SHA256SUMS
         shell: pwsh
         run: |
-          $p = Start-Process -FilePath "./dist/ZeroToCode-Systems-Lab-Portable/ZeroToCodeLab.exe" -ArgumentList "--self-check" -Wait -PassThru
+          $p = Start-Process -FilePath './dist/ZeroToCode-Systems-Lab-Portable/ZeroToCodeLab.exe' -ArgumentList '--self-check' -Wait -PassThru
           if ($p.ExitCode -ne 0) { throw "Self-check failed with exit code $($p.ExitCode)" }
           $lines = @()
-          foreach ($f in @("ZeroToCode-Systems-Lab-Setup-x64.exe", "ZeroToCode-Systems-Lab-Portable-win-x64.zip")) {
+          foreach ($f in @('ZeroToCode-Systems-Lab-Setup-x64.exe', 'ZeroToCode-Systems-Lab-Portable-win-x64.zip')) {
             $h = (Get-FileHash -Algorithm SHA256 -LiteralPath "./dist/$f").Hash.ToLowerInvariant()
             $lines += "$h  $f"
           }
-          $lines | Set-Content -LiteralPath "./dist/SHA256SUMS.txt" -Encoding ASCII
-          Get-Content "./dist/SHA256SUMS.txt"
+          $lines | Set-Content -LiteralPath './dist/SHA256SUMS.txt' -Encoding ASCII
+          Get-Content './dist/SHA256SUMS.txt'
 
       - name: Upload Windows Portable & Setup Artifacts
         uses: actions/upload-artifact@v4
@@ -81,23 +81,18 @@ jobs:
 
       - name: Publish Standalone Installer & Portable ZIP to GitHub Release v1.0.0
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        shell: pwsh
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          $notes = @(
-            "## Zero-to-Code Systems Lab v1.0.0 (100% Offline & Privacy-First)",
-            "",
-            "- **Installer (`ZeroToCode-Systems-Lab-Setup-x64.exe`)**: User-mode Windows x64 installer (no admin required) with Start Menu & Desktop shortcuts.",
-            "- **Portable Edition (`ZeroToCode-Systems-Lab-Portable-win-x64.zip`)**: Unzip anywhere (including USB drives) and run `ZeroToCodeLab.exe` — stores all local data self-contained inside `./portable-data/`.",
-            "- **Privacy Guarantee**: `0` external network requests (`connect-src 'none'` + native WebView2 air-gap filter), input-scoped keystroke dynamics only.",
-            "",
-            "### SHA-256 Checksums",
-            "```text"
-          ) + (Get-Content "./dist/SHA256SUMS.txt") + @("```")
-          $notes -join "`n" | Set-Content -LiteralPath "./dist/RELEASE_NOTES.md" -Encoding UTF8
-          if (gh release view v1.0.0 2>$null) {
-            gh release upload v1.0.0 ./dist/ZeroToCode-Systems-Lab-Setup-x64.exe ./dist/ZeroToCode-Systems-Lab-Portable-win-x64.zip ./dist/SHA256SUMS.txt --clobber
-          } else {
-            gh release create v1.0.0 ./dist/ZeroToCode-Systems-Lab-Setup-x64.exe ./dist/ZeroToCode-Systems-Lab-Portable-win-x64.zip ./dist/SHA256SUMS.txt --title "v1.0.0 - Standalone Windows x64 Installer & Portable Offline Edition" --notes-file ./dist/RELEASE_NOTES.md
-          }
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.0
+          name: v1.0.0 - Standalone Windows x64 Installer & Portable Offline Edition
+          body: |
+            ## Zero-to-Code Systems Lab v1.0.0 (100% Offline & Privacy-First)
+
+            - **Windows x64 Installer (`ZeroToCode-Systems-Lab-Setup-x64.exe`)**: User-mode setup (no admin rights required) with Start Menu and optional Desktop shortcuts plus clean uninstaller.
+            - **USB Portable Edition (`ZeroToCode-Systems-Lab-Portable-win-x64.zip`)**: Unzip anywhere and launch `ZeroToCodeLab.exe` directly — stores all WebView2 state and `localStorage` inside `./portable-data/` with zero registry writes.
+            - **Strict Air-Gapped Privacy**: `0` external network requests (`connect-src 'none'` + native C# WebView2 `403 Offline Blocked` filter) and input-scoped keystroke dynamics only.
+            - **SHA-256 Checksums**: Attached in `SHA256SUMS.txt`.
+          files: |
+            dist/ZeroToCode-Systems-Lab-Setup-x64.exe
+            dist/ZeroToCode-Systems-Lab-Portable-win-x64.zip
+            dist/SHA256SUMS.txt
