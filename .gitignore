@@ -1,0 +1,6 @@
+dist/
+build/
+portable-data/
+*.pdb
+__pycache__/
+.DS_Store
