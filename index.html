@@ -1,186 +1,186 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none';">
-  <title>First-Principles Systems &amp; No-Look Coding Trainer — 100% Local Lab</title>
-  <link rel="stylesheet" href="css/styles.css">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="Content-Security-Policy" content="connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none';">
+ <title>Zero-to-Code Systems Lab | Offline First-Principles Computer Science Trainer</title>
+ <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div id="app" class="app-shell" tabindex="-1">
-    <!-- Top Systems Cockpit Header -->
-    <header class="topbar" role="banner">
-      <div class="topbar-brand">
-        <button id="btn-sidebar-toggle" class="icon-btn mobile-only" type="button" aria-label="Toggle curriculum sidebar" title="Toggle curriculum navigation">
-          <span aria-hidden="true">&#9776;</span>
-        </button>
-        <div class="brand-mark" aria-hidden="true">01</div>
-        <div class="brand-copy">
-          <h1 class="brand-title">Zero-to-Code Lab</h1>
-          <div class="privacy-pill" title="Zero external requests. Keystroke timing is only captured inside focused practice &amp; answer inputs and stored strictly in localStorage.">
-            <span id="telemetry-scope-dot" class="scope-dot idle" aria-hidden="true"></span>
-            <span id="telemetry-scope-label">Offline &bull; Idle</span>
-          </div>
-        </div>
-      </div>
+ <div id="app" class="app-shell" tabindex="-1">
+ <!-- Top Systems Cockpit Header -->
+ <header class="topbar" role="banner">
+ <div class="topbar-brand">
+ <button id="btn-sidebar-toggle" class="icon-btn mobile-only" type="button" aria-label="Toggle curriculum sidebar" title="Toggle curriculum navigation">
+ <span aria-hidden="true">&#9776;</span>
+ </button>
+ <div class="brand-mark" aria-hidden="true">01</div>
+ <div class="brand-copy">
+ <h1 class="brand-title">Zero-to-Code Lab</h1>
+ <div class="privacy-pill" title="Zero external requests. Keystroke timing is only captured inside focused practice &amp; answer inputs and stored strictly in localStorage.">
+ <span id="telemetry-scope-dot" class="scope-dot idle" aria-hidden="true"></span>
+ <span id="telemetry-scope-label">Offline &bull; Idle</span>
+ </div>
+ </div>
+ </div>
 
-      <nav class="primary-nav" aria-label="Primary Training Modes">
-        <button type="button" class="nav-tab active" data-nav="curriculum">
-          <span class="nav-num">1-5</span> Curriculum
-        </button>
-        <button type="button" class="nav-tab" data-nav="typing">
-          <span class="nav-num">[A]</span> Typing
-        </button>
-        <button type="button" class="nav-tab" data-nav="shortcuts">
-          <span class="nav-num">^K</span> Shortcuts
-        </button>
-        <button type="button" class="nav-tab" data-nav="benchmark">
-          <span class="nav-num">7m</span> Benchmark
-        </button>
-        <button type="button" class="nav-tab" data-nav="telemetry">
-          <span class="nav-num">{ }</span> Vault
-        </button>
-      </nav>
+ <nav class="primary-nav" aria-label="Primary Training Modes">
+ <button type="button" class="nav-tab active" data-nav="curriculum">
+ <span class="nav-num">1-5</span> Curriculum
+ </button>
+ <button type="button" class="nav-tab" data-nav="typing">
+ <span class="nav-num">[A]</span> Typing
+ </button>
+ <button type="button" class="nav-tab" data-nav="shortcuts">
+ <span class="nav-num">^K</span> Shortcuts
+ </button>
+ <button type="button" class="nav-tab" data-nav="benchmark">
+ <span class="nav-num">7m</span> Benchmark
+ </button>
+ <button type="button" class="nav-tab" data-nav="telemetry">
+ <span class="nav-num">{ }</span> Vault
+ </button>
+ </nav>
 
-      <div class="topbar-hud">
-        <div class="hud-metrics" aria-label="Live Performance Summary">
-          <div class="hud-chip" title="Rolling Net Words Per Minute across practice inputs">
-            <span class="hud-label">WPM</span>
-            <strong id="hud-wpm">0</strong>
-          </div>
-          <div class="hud-chip" title="Cumulative keystroke accuracy inside practice inputs">
-            <span class="hud-label">ACC</span>
-            <strong id="hud-accuracy">100%</strong>
-          </div>
-          <div class="hud-chip" title="Median key-to-key hesitation latency in milliseconds">
-            <span class="hud-label">LATENCY</span>
-            <strong id="hud-latency">&mdash;</strong>
-          </div>
-          <div class="hud-chip" title="Modules at 90% or higher mastery">
-            <span class="hud-label">MASTERY</span>
-            <strong id="hud-mastery">0/10</strong>
-          </div>
-        </div>
+ <div class="topbar-hud">
+ <div class="hud-metrics" aria-label="Live Performance Summary">
+ <div class="hud-chip" title="Rolling Net Words Per Minute across practice inputs">
+ <span class="hud-label">WPM</span>
+ <strong id="hud-wpm">0</strong>
+ </div>
+ <div class="hud-chip" title="Cumulative keystroke accuracy inside practice inputs">
+ <span class="hud-label">ACC</span>
+ <strong id="hud-accuracy">100%</strong>
+ </div>
+ <div class="hud-chip" title="Median key-to-key hesitation latency in milliseconds">
+ <span class="hud-label">LATENCY</span>
+ <strong id="hud-latency">&mdash;</strong>
+ </div>
+ <div class="hud-chip" title="Modules at 90% or higher mastery">
+ <span class="hud-label">MASTERY</span>
+ <strong id="hud-mastery">0/10</strong>
+ </div>
+ </div>
 
-        <div class="topbar-actions">
-          <button id="btn-toggle-kb" class="util-btn" type="button" title="Show or collapse the on-screen visual keyboard dock">
-            Keyboard <span id="kb-toggle-state">On</span>
-          </button>
-          <button id="btn-export-json" class="util-btn" type="button" title="Export all local progress, telemetry, and mistake history as JSON">
-            Export JSON
-          </button>
-          <button id="btn-reset-json" class="util-btn danger-subtle" type="button" title="Reset all localStorage telemetry and progress">
-            Reset JSON
-          </button>
-          <button id="btn-theme-toggle" class="icon-btn" type="button" aria-label="Switch color theme" title="Toggle Dark / Light editorial theme">
-            <span id="theme-icon" aria-hidden="true">&#9789;</span>
-          </button>
-        </div>
-      </div>
-    </header>
+ <div class="topbar-actions">
+ <button id="btn-toggle-kb" class="util-btn" type="button" title="Show or collapse the on-screen visual keyboard dock">
+ Keyboard <span id="kb-toggle-state">On</span>
+ </button>
+ <button id="btn-export-json" class="util-btn" type="button" title="Export all local progress, telemetry, and mistake history as JSON">
+ Export JSON
+ </button>
+ <button id="btn-reset-json" class="util-btn danger-subtle" type="button" title="Reset all localStorage telemetry and progress">
+ Reset JSON
+ </button>
+ <button id="btn-theme-toggle" class="icon-btn" type="button" aria-label="Switch color theme" title="Toggle Dark / Light editorial theme">
+ <span id="theme-icon" aria-hidden="true">&#9789;</span>
+ </button>
+ </div>
+ </div>
+ </header>
 
-    <!-- Main Split Layout -->
-    <div class="workspace-grid">
-      <!-- Curriculum Stage & Module Sidebar -->
-      <aside id="sidebar" class="sidebar" aria-label="5-Stage Curriculum Roadmap">
-        <div class="sidebar-header">
-          <div>
-            <div class="eyebrow">FIRST-PRINCIPLES PATH</div>
-            <h2 class="sidebar-title">5 Stages: Physics &rarr; Code</h2>
-          </div>
-          <span id="sidebar-overall-pct" class="badge badge-accent">0%</span>
-        </div>
-        <div id="curriculum-tree" class="curriculum-tree"></div>
-        <div class="sidebar-footer">
-          <div class="sidebar-tip">
-            <strong>No-Look Rule:</strong> Rest Left Index on <code>F</code> and Right Index on <code>J</code> tactile bumps. Follow the glowing key &amp; finger guide below.
-          </div>
-        </div>
-      </aside>
+ <!-- Main Split Layout -->
+ <div class="workspace-grid">
+ <!-- Curriculum Stage & Module Sidebar -->
+ <aside id="sidebar" class="sidebar" aria-label="5-Stage Curriculum Roadmap">
+ <div class="sidebar-header">
+ <div>
+ <div class="eyebrow">FIRST-PRINCIPLES PATH</div>
+ <h2 class="sidebar-title">5 Stages: Physics &rarr; Code</h2>
+ </div>
+ <span id="sidebar-overall-pct" class="badge badge-accent">0%</span>
+ </div>
+ <div id="curriculum-tree" class="curriculum-tree"></div>
+ <div class="sidebar-footer">
+ <div class="sidebar-tip">
+ <strong>No-Look Rule:</strong> Rest Left Index on <code>F</code> and Right Index on <code>J</code> tactile bumps. Follow the glowing key &amp; finger guide below.
+ </div>
+ </div>
+ </aside>
 
-      <!-- Dynamic View Container + Docked Visual Keyboard -->
-      <div class="main-column">
-        <main id="main-stage" class="main-stage" tabindex="-1">
-          <!-- Rendered dynamically by js/app.js -->
-        </main>
+ <!-- Dynamic View Container + Docked Visual Keyboard -->
+ <div class="main-column">
+ <main id="main-stage" class="main-stage" tabindex="-1">
+ <!-- Rendered dynamically by js/app.js -->
+ </main>
 
-        <!-- Persistent On-Screen Visual Keyboard & Real-Time Finger Guide -->
-        <section id="visual-keyboard-dock" class="keyboard-dock" aria-label="On-Screen Visual Keyboard and Finger Guide">
-          <div class="kb-statusbar">
-            <div class="kb-guidance">
-              <span class="kb-target-pill" id="kb-next-key-badge">Ready: Focus any practice input</span>
-              <span class="kb-finger-pill" id="kb-finger-badge">Anchor index fingers on F &amp; J bumps</span>
-            </div>
-            <div class="kb-controls">
-              <label class="kb-heatmap-toggle" title="Highlight keys with slips or slow hesitation latency">
-                <input type="checkbox" id="chk-kb-heatmap" checked>
-                <span>Highlight Weak / Slow Keys</span>
-              </label>
-              <div class="kb-legend" aria-hidden="true">
-                <span class="legend-dot next"></span>Next Key
-                <span class="legend-dot slow"></span>Slow/Hesitant
-                <span class="legend-dot weak"></span>Slip-Prone
-              </div>
-              <button type="button" id="btn-minimize-kb" class="kb-min-btn" title="Collapse or expand keyboard keys">Hide Keys</button>
-            </div>
-          </div>
+ <!-- Persistent On-Screen Visual Keyboard & Real-Time Finger Guide -->
+ <section id="visual-keyboard-dock" class="keyboard-dock" aria-label="On-Screen Visual Keyboard and Finger Guide">
+ <div class="kb-statusbar">
+ <div class="kb-guidance">
+ <span class="kb-target-pill" id="kb-next-key-badge">Ready: Focus any practice input</span>
+ <span class="kb-finger-pill" id="kb-finger-badge">Anchor index fingers on F &amp; J bumps</span>
+ </div>
+ <div class="kb-controls">
+ <label class="kb-heatmap-toggle" title="Highlight keys with slips or slow hesitation latency">
+ <input type="checkbox" id="chk-kb-heatmap" checked>
+ <span>Highlight Weak / Slow Keys</span>
+ </label>
+ <div class="kb-legend" aria-hidden="true">
+ <span class="legend-dot next"></span>Next Key
+ <span class="legend-dot slow"></span>Slow/Hesitant
+ <span class="legend-dot weak"></span>Slip-Prone
+ </div>
+ <button type="button" id="btn-minimize-kb" class="kb-min-btn" title="Collapse or expand keyboard keys">Hide Keys</button>
+ </div>
+ </div>
 
-          <div id="kb-body" class="kb-body">
-            <!-- ANSI Full Touch-Typing Visual Keyboard -->
-            <div id="visual-keyboard" class="visual-keyboard" role="img" aria-label="ANSI Touch Typing Keyboard Map"></div>
+ <div id="kb-body" class="kb-body">
+ <!-- ANSI Full Touch-Typing Visual Keyboard -->
+ <div id="visual-keyboard" class="visual-keyboard" role="img" aria-label="ANSI Touch Typing Keyboard Map"></div>
 
-            <!-- Two-Hand Ergonomic Finger SVG Indicator -->
-            <div class="hands-panel" aria-label="Active Hand and Finger Indicator">
-              <div class="hands-header">Active Finger Map</div>
-              <svg id="hands-svg" class="hands-svg" viewBox="0 0 260 138" xmlns="http://www.w3.org/2000/svg">
-                <!-- Left Hand -->
-                <g class="hand-group" transform="translate(8, 8)">
-                  <text x="52" y="122" text-anchor="middle" class="hand-label">LEFT HAND (F)</text>
-                  <rect data-finger-svg="L-Pinky" x="6" y="34" width="16" height="44" rx="8" class="finger-shape zone-l-pinky" />
-                  <rect data-finger-svg="L-Ring" x="26" y="16" width="16" height="58" rx="8" class="finger-shape zone-l-ring" />
-                  <rect data-finger-svg="L-Middle" x="46" y="8" width="16" height="66" rx="8" class="finger-shape zone-l-middle" />
-                  <rect data-finger-svg="L-Index" x="66" y="18" width="16" height="56" rx="8" class="finger-shape zone-l-index" />
-                  <rect data-finger-svg="L-Thumb" x="86" y="54" width="22" height="16" rx="8" transform="rotate(-24 86 54)" class="finger-shape zone-thumb" />
-                  <path d="M10,72 Q46,66 82,72 L86,98 Q46,108 12,98 Z" class="palm-shape" />
-                  <line x1="70" y1="28" x2="78" y2="28" class="bump-mark" />
-                </g>
-                <!-- Right Hand -->
-                <g class="hand-group" transform="translate(138, 8)">
-                  <text x="60" y="122" text-anchor="middle" class="hand-label">RIGHT HAND (J)</text>
-                  <rect data-finger-svg="R-Thumb" x="6" y="45" width="22" height="16" rx="8" transform="rotate(24 28 54)" class="finger-shape zone-thumb" />
-                  <rect data-finger-svg="R-Index" x="32" y="18" width="16" height="56" rx="8" class="finger-shape zone-r-index" />
-                  <rect data-finger-svg="R-Middle" x="52" y="8" width="16" height="66" rx="8" class="finger-shape zone-r-middle" />
-                  <rect data-finger-svg="R-Ring" x="72" y="16" width="16" height="58" rx="8" class="finger-shape zone-r-ring" />
-                  <rect data-finger-svg="R-Pinky" x="92" y="34" width="16" height="44" rx="8" class="finger-shape zone-r-pinky" />
-                  <path d="M32,72 Q68,66 104,72 L102,98 Q68,108 28,98 Z" class="palm-shape" />
-                  <line x1="36" y1="28" x2="44" y2="28" class="bump-mark" />
-                </g>
-              </svg>
-              <div id="kb-weak-summary" class="kb-weak-summary">0 weak keys tracked yet</div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
+ <!-- Two-Hand Ergonomic Finger SVG Indicator -->
+ <div class="hands-panel" aria-label="Active Hand and Finger Indicator">
+ <div class="hands-header">Active Finger Map</div>
+ <svg id="hands-svg" class="hands-svg" viewBox="0 0 260 138" xmlns="http://www.w3.org/2000/svg">
+ <!-- Left Hand -->
+ <g class="hand-group" transform="translate(8, 8)">
+ <text x="52" y="122" text-anchor="middle" class="hand-label">LEFT HAND (F)</text>
+ <rect data-finger-svg="L-Pinky" x="6" y="34" width="16" height="44" rx="8" class="finger-shape zone-l-pinky" />
+ <rect data-finger-svg="L-Ring" x="26" y="16" width="16" height="58" rx="8" class="finger-shape zone-l-ring" />
+ <rect data-finger-svg="L-Middle" x="46" y="8" width="16" height="66" rx="8" class="finger-shape zone-l-middle" />
+ <rect data-finger-svg="L-Index" x="66" y="18" width="16" height="56" rx="8" class="finger-shape zone-l-index" />
+ <rect data-finger-svg="L-Thumb" x="86" y="54" width="22" height="16" rx="8" transform="rotate(-24 86 54)" class="finger-shape zone-thumb" />
+ <path d="M10,72 Q46,66 82,72 L86,98 Q46,108 12,98 Z" class="palm-shape" />
+ <line x1="70" y1="28" x2="78" y2="28" class="bump-mark" />
+ </g>
+ <!-- Right Hand -->
+ <g class="hand-group" transform="translate(138, 8)">
+ <text x="60" y="122" text-anchor="middle" class="hand-label">RIGHT HAND (J)</text>
+ <rect data-finger-svg="R-Thumb" x="6" y="45" width="22" height="16" rx="8" transform="rotate(24 28 54)" class="finger-shape zone-thumb" />
+ <rect data-finger-svg="R-Index" x="32" y="18" width="16" height="56" rx="8" class="finger-shape zone-r-index" />
+ <rect data-finger-svg="R-Middle" x="52" y="8" width="16" height="66" rx="8" class="finger-shape zone-r-middle" />
+ <rect data-finger-svg="R-Ring" x="72" y="16" width="16" height="58" rx="8" class="finger-shape zone-r-ring" />
+ <rect data-finger-svg="R-Pinky" x="92" y="34" width="16" height="44" rx="8" class="finger-shape zone-r-pinky" />
+ <path d="M32,72 Q68,66 104,72 L102,98 Q68,108 28,98 Z" class="palm-shape" />
+ <line x1="36" y1="28" x2="44" y2="28" class="bump-mark" />
+ </g>
+ </svg>
+ <div id="kb-weak-summary" class="kb-weak-summary">0 weak keys tracked yet</div>
+ </div>
+ </div>
+ </section>
+ </div>
+ </div>
 
-    <!-- Accessible Modal for JSON Export Preview / Reset Confirmation -->
-    <div id="modal-backdrop" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <div class="modal-card">
-        <div class="modal-header">
-          <h2 id="modal-title" class="modal-title">Local Telemetry JSON</h2>
-          <button type="button" id="btn-modal-close" class="icon-btn" aria-label="Close modal">&times;</button>
-        </div>
-        <div id="modal-body" class="modal-body"></div>
-        <div id="modal-actions" class="modal-actions"></div>
-      </div>
-    </div>
-  </div>
+ <!-- Accessible Modal for JSON Export Preview / Reset Confirmation -->
+ <div id="modal-backdrop" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+ <div class="modal-card">
+ <div class="modal-header">
+ <h2 id="modal-title" class="modal-title">Local Telemetry JSON</h2>
+ <button type="button" id="btn-modal-close" class="icon-btn" aria-label="Close modal">&times;</button>
+ </div>
+ <div id="modal-body" class="modal-body"></div>
+ <div id="modal-actions" class="modal-actions"></div>
+ </div>
+ </div>
+ </div>
 
-  <script src="js/telemetry.js"></script>
-  <script src="js/curriculum.js"></script>
-  <script src="js/quiz-engine.js"></script>
-  <script src="js/shortcut-trainer.js"></script>
-  <script src="js/app.js"></script>
+ <script src="js/telemetry.js"></script>
+ <script src="js/curriculum.js"></script>
+ <script src="js/quiz-engine.js"></script>
+ <script src="js/shortcut-trainer.js"></script>
+ <script src="js/app.js"></script>
 </body>
 </html>
