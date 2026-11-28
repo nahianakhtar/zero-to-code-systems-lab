@@ -89,7 +89,7 @@ jobs:
             ## Zero-to-Code Systems Lab v1.0.0 (100% Offline & Privacy-First)
 
             - **Windows x64 Installer (`ZeroToCode-Systems-Lab-Setup-x64.exe`)**: User-mode setup (no admin rights required) with Start Menu and optional Desktop shortcuts plus clean uninstaller.
-            - **USB Portable Edition (`ZeroToCode-Systems-Lab-Portable-win-x64.zip`)**: Unzip anywhere and launch `ZeroToCodeLab.exe` directly — stores all WebView2 state and `localStorage` inside `./portable-data/` with zero registry writes.
+            - **USB Portable Edition (`ZeroToCode-Systems-Lab-Portable-win-x64.zip`)**: Unzip anywhere and launch `ZeroToCodeLab.exe` directly: stores all WebView2 state and `localStorage` inside `./portable-data/` with zero registry writes.
             - **Strict Air-Gapped Privacy**: `0` external network requests (`connect-src 'none'` + native C# WebView2 `403 Offline Blocked` filter) and input-scoped keystroke dynamics only.
             - **SHA-256 Checksums**: Attached in `SHA256SUMS.txt`.
           files: |
